@@ -1,6 +1,6 @@
 /* global document */
 
-import ext from '../utils/ext';
+import browser from 'webextension-polyfill';
 
 function onRequest(request) {
   if (request.action === 'change-color') {
@@ -8,4 +8,4 @@ function onRequest(request) {
   }
 }
 
-ext.runtime.onMessage.addListener(onRequest);
+browser.runtime.onMessage.addListener(onRequest);
