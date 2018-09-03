@@ -1,5 +1,12 @@
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const { getHTMLPlugins, getOutput, getCopyPlugins, getZipPlugin, getFirefoxCopyPlugins, getEntry } = require('./webpack.utils');
+const {
+  getHTMLPlugins,
+  getOutput,
+  getCopyPlugins,
+  getZipPlugin,
+  getFirefoxCopyPlugins,
+  getEntry
+} = require('./webpack.utils');
 const config = require('./config.json');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
@@ -12,33 +19,28 @@ const generalConfig = {
         exclude: /node_modules/,
         test: /\.(js|jsx)$/,
         query: {
-          presets: ['@babel/preset-env','@babel/preset-react'],
+          presets: ['@babel/preset-env', '@babel/preset-react']
         },
         resolve: {
-          extensions: ['.js', '.jsx'],
-        },
-      },
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: ['eslint-loader'],
+          extensions: ['.js', '.jsx']
+        }
       },
       {
         test: /\.scss$/,
         use: [
           {
-            loader: 'style-loader',
+            loader: 'style-loader'
           },
           {
-            loader: 'css-loader',
+            loader: 'css-loader'
           },
           {
-            loader: 'sass-loader',
-          },
-        ],
-      },
-    ],
-  },
+            loader: 'sass-loader'
+          }
+        ]
+      }
+    ]
+  }
 };
 
 module.exports = [
@@ -51,8 +53,8 @@ module.exports = [
       new UglifyJsPlugin(),
       ...getHTMLPlugins('chrome', config.tempDirectory, config.chromePath),
       ...getCopyPlugins('chrome', config.tempDirectory, config.chromePath),
-      getZipPlugin('chrome', config.distDirectory),
-    ],
+      getZipPlugin('chrome', config.distDirectory)
+    ]
   },
   {
     ...generalConfig,
@@ -63,8 +65,8 @@ module.exports = [
       new UglifyJsPlugin(),
       ...getHTMLPlugins('opera', config.tempDirectory, config.operaPath),
       ...getCopyPlugins('opera', config.tempDirectory, config.operaPath),
-      getZipPlugin('opera', config.distDirectory),
-    ],
+      getZipPlugin('opera', config.distDirectory)
+    ]
   },
   {
     ...generalConfig,
@@ -75,7 +77,7 @@ module.exports = [
       new UglifyJsPlugin(),
       ...getHTMLPlugins('firefox', config.tempDirectory, config.firefoxPath),
       ...getFirefoxCopyPlugins('firefox', config.tempDirectory, config.firefoxPath),
-      getZipPlugin('firefox', config.distDirectory),
-    ],
-  },
+      getZipPlugin('firefox', config.distDirectory)
+    ]
+  }
 ];
