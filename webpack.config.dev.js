@@ -1,3 +1,7 @@
+/* Copyright (c) 2018 Kamil Mikosz 
+ * Released under the MIT license.
+ * see https://opensource.org/licenses/MIT */
+
 const {
   getHTMLPlugins,
   getOutput,
