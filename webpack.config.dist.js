@@ -14,6 +14,9 @@ const {
 const config = require('./config.json');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
+const extVersion = require('./src/manifest.json').version;
+const ffExtVersion = require('./src/manifest-ff.json').version;
+
 const generalConfig = {
   mode: 'production',
   module: {
@@ -57,7 +60,7 @@ module.exports = [
       new UglifyJsPlugin(),
       ...getHTMLPlugins('chrome', config.tempDirectory, config.chromePath),
       ...getCopyPlugins('chrome', config.tempDirectory, config.chromePath),
-      getZipPlugin('chrome', config.distDirectory)
+      getZipPlugin(`${config.extName}-for-chrome-${extVersion}`, config.distDirectory)
     ]
   },
   {
@@ -69,7 +72,7 @@ module.exports = [
       new UglifyJsPlugin(),
       ...getHTMLPlugins('opera', config.tempDirectory, config.operaPath),
       ...getCopyPlugins('opera', config.tempDirectory, config.operaPath),
-      getZipPlugin('opera', config.distDirectory)
+      getZipPlugin(`${config.extName}-for-opera-${extVersion}`, config.distDirectory)
     ]
   },
   {
@@ -81,7 +84,7 @@ module.exports = [
       new UglifyJsPlugin(),
       ...getHTMLPlugins('firefox', config.tempDirectory, config.firefoxPath),
       ...getFirefoxCopyPlugins('firefox', config.tempDirectory, config.firefoxPath),
-      getZipPlugin('firefox', config.distDirectory)
+      getZipPlugin(`${config.extName}-for-firefox-${ffExtVersion}`, config.distDirectory)
     ]
   }
 ];

@@ -75,7 +75,7 @@ const getFirefoxCopyPlugins = (browserDir, outputDir = 'dev', sourceDir = 'src')
 
 const getZipPlugin = (browserDir, outputDir = 'dist') =>
   new ZipPlugin({
-    path: path.resolve(__dirname, `${outputDir}/${browserDir}`),
+    path: path.resolve(__dirname, `${outputDir}`),
     filename: browserDir,
     extension: 'zip',
     fileOptions: {

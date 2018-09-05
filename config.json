@@ -4,5 +4,6 @@
   "firefoxPath": "src",
   "devDirectory": "dev",
   "distDirectory": "dist",
-  "tempDirectory": "temp"
+  "tempDirectory": "temp",
+  "extName": "Ext React Starter"
 }
