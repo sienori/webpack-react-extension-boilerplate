@@ -1,4 +1,5 @@
 /* Copyright (c) 2018 Kamil Mikosz 
+ * Copyright (c) 2018 Sienori
  * Released under the MIT license.
  * see https://opensource.org/licenses/MIT */
 
