@@ -21,7 +21,17 @@ const generalConfig = {
         exclude: /node_modules/,
         test: /\.(js|jsx)$/,
         query: {
-          presets: ['@babel/preset-env', '@babel/preset-react']
+          presets: [
+            [
+              '@babel/preset-env',
+              {
+                targets: {
+                  firefox: 57
+                }
+              }
+            ],
+            '@babel/preset-react'
+          ]
         },
         resolve: {
           extensions: ['.js', '.jsx']
